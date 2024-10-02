@@ -1,1 +1,217 @@
-<h1>Hello World!</h1>
+<!-- Base HTML Structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Money Mindset</title>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo Placeholder -->
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="https://via.placeholder.com/150x50?text=Logo" alt="Money Mindset Logo" class="h-8 w-auto">
+                </div>
+                <!-- Navigation -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">About</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">Features</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">Testimonials</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button type="button" class="text-gray-700 hover:text-indigo-600 focus:outline-none focus:text-indigo-600" aria-label="Toggle menu">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative z-10 py-20 flex flex-col items-center text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
+                    Transform Your Financial Future
+                </h1>
+                <p class="mt-6 max-w-3xl text-xl text-gray-500">
+                    Join our community-led movement and take practical steps toward achieving financial freedom and independence.
+                </p>
+                <div class="mt-8 flex space-x-4">
+                    <a href="#events" class="bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full shadow hover:bg-indigo-700 transition">
+                        Join Our Next Event
+                    </a>
+                    <a href="#about" class="border-2 border-indigo-600 text-indigo-600 font-semibold py-3 px-6 rounded-full hover:bg-indigo-600 hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+                <!-- Scroll Down Indicator -->
+                <div class="absolute bottom-10 animate-bounce">
+                    <svg class="h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://source.unsplash.com/random/1600x900?finance,community" alt="Community Financial Success" class="w-full h-full object-cover opacity-30">
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase">
+                    Picture this!
+                </h2>
+                <p class="mt-2 text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
+                    What if...
+                </p>
+                <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+                    What if you could turn your passion into profit, unlocking a life where financial independence isn't just a dream, but a reality?
+                </p>
+                <div class="mt-8">
+                    <img src="https://source.unsplash.com/random/800x600?success" alt="Person celebrating financial success">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2">
+                    <h2 class="text-base font-semibold tracking-wide uppercase">
+                        Your Journey to Financial Freedom Starts Here
+                    </h2>
+                    <p class="mt-2 text-3xl font-extrabold sm:text-4xl">
+                        About Money Mindset
+                    </p>
+                    <p class="mt-4 text-xl">
+                        We're a community-led movement where real people share real strategies for making money. It's practical, it's actionable, and it's designed for YOU.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#" class="bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-indigo-100 transition duration-300">
+                            Join Our Community
+                        </a>
+                        <a href="#" class="border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-indigo-600 transition duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-10 lg:mt-0 lg:w-1/2">
+                    <img src="https://source.unsplash.com/random/600x400?finance" alt="People discussing finance" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl leading-9 font-extrabold text-gray-900">How will you benefit?</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">Real-World Insights</h3>
+                    <p>Experts share tips that have worked for them.</p>
+                    <img src="https://source.unsplash.com/random/400x300?seminar" alt="Expert giving a presentation">
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Community-Driven Support</h3>
+                    <p>You’re not alone. Join a network of individuals who uplift and inspire.</p>
+                    <img src="https://source.unsplash.com/random/400x300?networking" alt="Group of people networking">
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Practical Workshops</h3>
+                    <p>Hands-on sessions that teach you how to turn your skills into steady cash.</p>
+                    <img src="https://source.unsplash.com/random/400x300?workshop" alt="People participating in a workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl leading-9 font-extrabold text-gray-900 text-center mb-12">What People Are Saying</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://source.unsplash.com/random/60x60?portrait" alt="Jane Doe" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-bold">Jane Doe</p>
+                            <p class="text-sm text-gray-600">Freelancer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Money Mindset has been a game-changer for me. The practical advice and supportive community have helped me increase my income significantly."</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <img src="https://source.unsplash.com/random/60x60?man" alt="John Smith" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-bold">John Smith</p>
+                            <p class="text-sm text-gray-600">Small Business Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The insights I've gained from Money Mindset workshops have transformed my approach to business finances. My profits have never been better!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl leading-9 font-extrabold text-gray-900">Upcoming Events</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg">Digital Skills Workshop</h3>
+                    <p>Learn how to monetize your digital skills.</p>
+                    <a href="#" class="text-indigo-600 font-bold">RSVP</a>
+                    <img src="https://source.unsplash.com/random/400x300?digital-skills" alt="Person working on a computer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between">
+                <div>
+                    <h3 class="font-bold text-lg">Money Mindset</h3>
+                    <p class="mt-2 text-sm">Empowering communities for financial success.</p>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-sm">Contact</a>
+                    <a href="#" class="text-sm">Privacy Policy</a>
+                    <a href="#" class="text-sm">Terms of Service</a>
+                </div>
+            </div>
+            <div class="mt-4 flex justify-between">
+                <p class="text-sm">&copy; 2024 Money Mindset. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#"><img src="https://source.unsplash.com/random/30x30?icon" alt="Facebook Icon"></a>
+                    <a href="#"><img src="https://source.unsplash.com/random/30x30?icon" alt="Twitter Icon"></a>
+                    <a href="#"><img src="https://source.unsplash.com/random/30x30?icon" alt="Instagram Icon"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
