@@ -1,328 +1,1170 @@
-<!-- Base HTML Structure -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Money Mindset</title>
+    <title>Money Mindset - Turn Your Hustle into a Legacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#004241',   // Dark teal from logo
+                        secondary: '#F7C922', // Yellow/gold from logo
+                        accent: '#5B9BD5',    // Light blue from logo
+                        dark: '#002B29',      // Darker variation of primary
+                        light: '#F8FAFC',     // Light background
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #004241, #5B9BD5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-text-gold {
+            background: linear-gradient(to right, #004241, #F7C922);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,66,65,0.05) 0%, rgba(247,201,34,0.15) 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .sticky-nav {
+            transition: all 0.3s ease;
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #F7C922;
+            transform: translateY(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px rgba(247,201,34,0.3);
+        }
+        .timeline-line {
+            position: absolute;
+            left: -27px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0,66,65,0.2);
+        }
+        @media (max-width: 768px) {
+            .timeline-dot::before {
+                left: -30px;
+                width: 16px;
+                height: 16px;
+            }
+            .timeline-line {
+                left: -22px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- Header -->
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <!-- Logo Placeholder -->
-                <div class="flex-shrink-0 flex items-center">
-                    <img src="https://via.placeholder.com/150x50?text=Logo" alt="Money Mindset Logo" class="h-8 w-auto">
-                </div>
-                <!-- Navigation -->
+<body class="bg-light text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50 sticky-nav">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center">
+                    <img src="./gallery/logo.png" alt="Money Mindset Logo" class="h-16 md:h-18 mr-2">
+                    <span class="hidden md:block text-2xl font-bold text-primary">MONEY<span class="text-secondary"> MINDSET</span></span>
+                </a>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#hero" class="text-gray-700 hover:text-indigo-600">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-indigo-600">About</a>
-                    <a href="#features" class="text-gray-700 hover:text-indigo-600">Features</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-indigo-600">Testimonials</a>
-                    <a href="#events" class="text-gray-700 hover:text-indigo-600">Events</a>
-                    <a href="#contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
+                    <a href="#about" class="font-medium hover:text-primary transition text-base tracking-wide">About</a>
+                    <a href="#episodes" class="font-medium hover:text-primary transition text-base tracking-wide">Series Two</a>
+                    <a href="#tools" class="font-medium hover:text-primary transition text-base tracking-wide">Free Tools</a>
+                    <a href="#events" class="font-medium hover:text-primary transition text-base tracking-wide">Events</a>
+                    <a href="#contact" class="bg-secondary text-primary px-6 py-3 rounded-lg hover:bg-opacity-90 transition text-base font-bold shadow-md tracking-wide">Register Now</a>
                 </div>
-                <!-- Mobile Menu Button -->
-                <div class="flex items-center md:hidden">
-                    <button type="button" class="text-gray-700 hover:text-indigo-600 focus:outline-none focus:text-indigo-600" aria-label="Toggle menu" id="menu-button">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+                <button class="md:hidden text-2xl text-primary" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#about" class="block py-3 text-lg hover:text-primary transition border-b border-gray-100">About</a>
+                <a href="#episodes" class="block py-3 text-lg hover:text-primary transition border-b border-gray-100">Series Two</a>
+                <a href="#tools" class="block py-3 text-lg hover:text-primary transition border-b border-gray-100">Free Tools</a>
+                <a href="#events" class="block py-3 text-lg hover:text-primary transition">Events</a>
+                <a href="#contact" class="block py-3 mt-4 bg-secondary text-primary px-4 rounded-lg text-center text-lg font-bold shadow-md">Register Now</a>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div class="md:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#hero" class="block text-gray-700 hover:text-indigo-600">Home</a>
-                <a href="#about" class="block text-gray-700 hover:text-indigo-600">About</a>
-                <a href="#features" class="block text-gray-700 hover:text-indigo-600">Features</a>
-                <a href="#testimonials" class="block text-gray-700 hover:text-indigo-600">Testimonials</a>
-                <a href="#events" class="block text-gray-700 hover:text-indigo-600">Events</a>
-                <a href="#contact" class="block text-gray-700 hover:text-indigo-600">Contact</a>
-            </div>
-        </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative z-10 py-20 flex flex-col items-center text-center">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
-                    Transform Your Financial Future
-                </h1>
-                <p class="mt-6 max-w-3xl text-xl text-gray-500">
-                    Join our community-led movement and take practical steps toward achieving financial freedom and independence.
-                </p>
-                <div class="mt-8 flex space-x-4">
-                    <a href="#events" class="bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full shadow hover:bg-indigo-700 transition">
-                        Join Our Next Event
-                    </a>
-                    <a href="#about" class="border-2 border-indigo-600 text-indigo-600 font-semibold py-3 px-6 rounded-full hover:bg-indigo-600 hover:text-white transition">
-                        Learn More
-                    </a>
-                </div>
-                <!-- Scroll Down Indicator -->
-                <div class="absolute bottom-10 animate-bounce">
-                    <svg class="h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-            <img src="https://source.unsplash.com/random/1600x900?finance,community" alt="Community Financial Success" class="w-full h-full object-cover opacity-30">
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <h2 class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase">
-                    Picture this!
-                </h2>
-                <p class="mt-2 text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
-                    What if...
-                </p>
-                <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
-                    What if you could turn your passion into profit, unlocking a life where financial independence isn't just a dream, but a reality?
-                </p>
-                <div class="mt-8">
-                    <img src="https://source.unsplash.com/random/800x600?success" alt="Person celebrating financial success">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="py-16 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:flex lg:items-center lg:justify-between">
-                <div class="lg:w-1/2">
-                    <h2 class="text-base font-semibold tracking-wide uppercase">
-                        Your Journey to Financial Freedom Starts Here
-                    </h2>
-                    <p class="mt-2 text-3xl font-extrabold sm:text-4xl">
-                        About Money Mindset
-                    </p>
-                    <p class="mt-4 text-xl">
-                        We're a community-led movement where real people share real strategies for making money. It's practical, it's actionable, and it's designed for YOU.
-                    </p>
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="#" class="bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-indigo-100 transition duration-300">
-                            Join Our Community
-                        </a>
-                        <a href="#" class="border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-indigo-600 transition duration-300">
-                            Learn More
-                        </a>
+    <section class="hero-gradient pt-28 pb-16 md:pt-36 md:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row lg:items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+                    <div class="inline-block bg-secondary/20 text-primary font-bold px-4 py-2 rounded-full mb-6 text-sm tracking-wider">NEW SERIES STARTING FEB 2025</div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Turn Your <span class="text-primary">Hustle</span> into a <span class="text-secondary">Legacy</span></h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">Series Two unpacks the why and how of building a legitimate Business — so you can protect your ideas, attract opportunities, and grow without limits.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#contact" class="bg-primary hover:bg-dark text-white font-bold px-8 py-4 rounded-lg text-center transition duration-300 shadow-md hover:shadow-xl text-lg tracking-wide">Reserve Your Spot</a>
+                        <a href="#episodes" class="border-2 border-primary hover:bg-primary/5 text-primary font-bold px-8 py-4 rounded-lg text-center transition duration-300 text-lg tracking-wide">Explore Episodes</a>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex -space-x-4">
+                            <img src="./gallery/abel_testimony.jpg" alt="Testimonial" class="w-12 h-12 rounded-full border-2 border-white">
+                            <img src="./gallery/manka_testimony.jpg" alt="Testimonial" class="w-12 h-12 rounded-full border-2 border-white">
+                            <img src="./gallery/mtuchi_testimony.jpg" alt="Testimonial" class="w-12 h-12 rounded-full border-2 border-white">
+                        </div>
+                        <div class="ml-4">
+                            <div class="flex text-yellow-400">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                            <p class="text-sm text-gray-600">Empowering <span class="font-bold">hundred</span> of entrepreneurs</p>
+                        </div>
                     </div>
                 </div>
-                <div class="mt-10 lg:mt-0 lg:w-1/2">
-                    <img src="https://source.unsplash.com/random/600x400?finance" alt="People discussing finance" class="rounded-lg shadow-xl">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary rounded-3xl transform rotate-3 scale-105 opacity-10"></div>
+                        <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                            <img src="./gallery/event.7.png" alt="Entrepreneurs collaborating at a Money Mindset event" class="w-full h-auto object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-8">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <div class="text-white">
+                                        <p class="text-sm">Come to our Monthly Dialogues</p>
+                                        <p class="font-bold">No fees. Just actionable Insights.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl leading-9 font-extrabold text-gray-900">How it works</h2>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg">Real-World Insights</h3>
-                    <p>Experts share tips that have worked for them.</p>
-                    <img src="https://source.unsplash.com/random/400x300?seminar" alt="Expert giving a presentation">
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">What Makes <span class="gradient-text-gold">Money Mindset</span> Different?</h2>
+                <p class="text-xl text-gray-600">We're not here to lecture. We're here to simplify complex business concepts through relatable stories and actionable tools.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover border-t-4 border-primary">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Skip the Guesswork</h3>
+                    <p class="text-gray-600 text-lg mb-4">Clear, step-by-step guidance on registration, taxes, licenses, and more.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Step-by-step processes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Clear timelines</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Simplified procedures</span>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="font-bold text-lg">Community-Driven Support</h3>
-                    <p>You're not alone. Join a network of individuals who uplift and inspire.</p>
-                    <img src="https://source.unsplash.com/random/400x300?networking" alt="Group of people networking">
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover border-t-4 border-secondary">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Learn from Real People</h3>
+                    <p class="text-gray-600 text-lg mb-4">Relatable stories from entrepreneurs who've been there, made mistakes, and succeeded.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>No exaggerated success stories</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Real challenges addressed</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Actionable solutions</span>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="font-bold text-lg">Practical Workshops</h3>
-                    <p>Hands-on sessions that teach you how to turn your skills into steady cash.</p>
-                    <img src="https://source.unsplash.com/random/400x300?workshop" alt="People participating in a workshop">
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover border-t-4 border-accent">
+                    <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Act Immediately</h3>
+                    <p class="text-gray-600 text-lg mb-4">Free tools and checklists to apply what you learn right away.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Downloadable templates</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Practical checklists</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Implementation guides</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl leading-9 font-extrabold text-gray-900 text-center mb-12">What People Are Saying</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <img src="https://source.unsplash.com/random/60x60?portrait" alt="Jane Doe" class="w-12 h-12 rounded-full mr-4">
+            
+            <!-- Testimonial Feature -->
+            <div class="bg-primary rounded-2xl overflow-hidden shadow-xl">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-2/5 relative">
+                        <img src="./gallery/event.9.png" alt="Entrepreneur success story" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 lg:from-primary to-transparent flex items-center lg:hidden">
+                            <div class="p-8">
+                                <blockquote class="text-white text-xl md:text-2xl italic font-medium">"I used to think formalizing was optional. Now I see it as my secret weapon."</blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-3/5 p-8 md:p-12 flex items-center">
                         <div>
-                            <p class="font-bold">Jane Doe</p>
-                            <p class="text-sm text-gray-600">Freelancer</p>
+                            <blockquote class="text-white text-xl md:text-3xl italic font-medium mb-8 hidden lg:block">"I used to think formalizing was optional. Now I see it as my secret weapon."</blockquote>
+                            <div class="flex items-center">
+                                <img src="./gallery/abel_testimony.jpg" alt="Sarah" class="w-16 h-16 rounded-full border-2 border-secondary mr-4">
+                                <div>
+                                    <p class="text-white font-bold text-lg">Abell</p>
+                                    <p class="text-white/80">Small Business Owner, Arusha</p>
+                                </div>
+                            </div>
+                            <p class="mt-6 text-white/90">Since registering her business properly, Abell has landed two corporate clients and secured funding that transformed her side hustle into a full-time venture with three employees.</p>
+                            <a href="#contact" class="inline-block mt-8 bg-secondary text-primary font-bold px-6 py-3 rounded-lg hover:bg-opacity-90 transition">Join Abell & Others</a>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic">"Money Mindset has been a game-changer for me. The practical advice and supportive community have helped me increase my income significantly."</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <div class="flex items-center mb-4">
-                        <img src="https://source.unsplash.com/random/60x60?man" alt="John Smith" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <p class="font-bold">John Smith</p>
-                            <p class="text-sm text-gray-600">Small Business Owner</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic">"The insights I've gained from Money Mindset workshops have transformed my approach to business finances. My profits have never been better!"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Upcoming Events Section -->
-    <section id="events" class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl leading-9 font-extrabold text-gray-900 text-center mb-8">Upcoming Events</h2>
-            <div class="mt-8 relative">
-                <!-- Carousel Container -->
-                <div class="carousel flex overflow-x-auto space-x-8 snap-x snap-mandatory pb-6">
-                    <!-- Event Item 1 -->
-                    <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 snap-center flex-shrink-0">
-                        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
-                            <h3 class="font-bold text-xl mb-2">Digital Skills Workshop</h3>
-                            <p class="text-gray-600 mb-4">Learn how to monetize your digital skills.</p>
-                            <p class="text-sm text-gray-500 mb-4">Date: June 15, 2023 | Time: 2:00 PM EST</p>
-                            <button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors duration-300" onclick="showDetails('event1')">RSVP</button>
-                            <img src="https://source.unsplash.com/random/400x300?digital-skills" alt="Person working on a computer" class="mt-4 rounded-lg w-full h-48 object-cover">
+    <!-- Episode Timeline Section (Improved) -->
+    <section id="episodes" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center max-w-3xl mx-auto">
+                <span class="inline-block bg-primary/10 text-primary font-bold px-4 py-2 rounded-full mb-4 text-sm">SERIES TWO CURRICULUM</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Your Journey to Business Legitimacy</h2>
+                <p class="text-xl text-gray-600">A 5-month program to transform your hustle into a structured, compliant, and growth-ready business. Each episode includes free tools to implement what you learn.</p>
+            </div>
+            
+            <div class="relative lg:pl-0 lg:flex lg:justify-center">
+                <!-- Timeline Desktop View -->
+                <div class="hidden lg:grid lg:grid-cols-5 gap-6 max-w-5xl">
+                    <!-- Episode 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-2 bg-primary"></div>
+                        <div class="p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary text-white text-xs font-bold rounded-full mr-3">FEB</span>
+                                <h3 class="text-xl font-bold text-gray-800">Register Right</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Why it matters: <span class="font-semibold text-primary">Legitimacy = Trust</span></p>
+                            <ul class="space-y-2 mb-4 flex-grow">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Business structure selection</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Registration process</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Required documentation</span>
+                                </li>
+                            </ul>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <div class="flex items-center text-primary">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                    <p class="font-medium">Free registration flowchart</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Event Item 2 -->
-                    <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 snap-center flex-shrink-0">
-                        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
-                            <h3 class="font-bold text-xl mb-2">Financial Planning Seminar</h3>
-                            <p class="text-gray-600 mb-4">Master the art of personal finance management.</p>
-                            <p class="text-sm text-gray-500 mb-4">Date: July 1, 2023 | Time: 10:00 AM EST</p>
-                            <button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors duration-300" onclick="showDetails('event2')">RSVP</button>
-                            <img src="https://source.unsplash.com/random/400x300?finance" alt="Financial planning session" class="mt-4 rounded-lg w-full h-48 object-cover">
+                    
+                    <!-- Episode 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-2 bg-primary"></div>
+                        <div class="p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary text-white text-xs font-bold rounded-full mr-3">MAR</span>
+                                <h3 class="text-xl font-bold text-gray-800">License Lowdown</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Why it matters: <span class="font-semibold text-primary">Avoid fines, unlock growth</span></p>
+                            <ul class="space-y-2 mb-4 flex-grow">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Industry-specific licenses</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Permit requirements</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Compliance strategies</span>
+                                </li>
+                            </ul>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <div class="flex items-center text-primary">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                    <p class="font-medium">License checklist bundle</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Event Item 3 -->
-                    <div class="min-w-full md:min-w-1/2 lg:min-w-1/3 snap-center flex-shrink-0">
-                        <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
-                            <h3 class="font-bold text-xl mb-2">Entrepreneurship Bootcamp</h3>
-                            <p class="text-gray-600 mb-4">Kickstart your journey as a successful entrepreneur.</p>
-                            <p class="text-sm text-gray-500 mb-4">Date: July 20, 2023 | Time: 9:00 AM EST</p>
-                            <button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors duration-300" onclick="showDetails('event3')">RSVP</button>
-                            <img src="https://source.unsplash.com/random/400x300?entrepreneur" alt="Entrepreneurship session" class="mt-4 rounded-lg w-full h-48 object-cover">
+                    
+                    <!-- Episode 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-2 bg-primary"></div>
+                        <div class="p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary text-white text-xs font-bold rounded-full mr-3">APR</span>
+                                <h3 class="text-xl font-bold text-gray-800">Tax Tactics</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Why it matters: <span class="font-semibold text-primary">Taxes fund your future</span></p>
+                            <ul class="space-y-2 mb-4 flex-grow">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Tax classification</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Filing requirements</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Deduction strategies</span>
+                                </li>
+                            </ul>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <div class="flex items-center text-primary">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                    <p class="font-medium">Tax calculation template</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Episode 4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 opacity-90">
+                        <div class="h-2 bg-primary opacity-60"></div>
+                        <div class="p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary opacity-60 text-white text-xs font-bold rounded-full mr-3">MAY</span>
+                                <h3 class="text-xl font-bold text-gray-800">Formalize & Thrive</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Why it matters: <span class="font-semibold text-primary opacity-60">Look pro, attract investors</span></p>
+                            <ul class="space-y-2 mb-4 flex-grow">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary opacity-60 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Brand development</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary opacity-60 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Professional operations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary opacity-60 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Investor readiness</span>
+                                </li>
+                            </ul>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <div class="flex items-center text-primary opacity-60">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                    <p class="font-medium">Case study collection</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Episode 5 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 opacity-80">
+                        <div class="h-2 bg-primary opacity-60"></div>
+                        <div class="p-6 flex flex-col h-full">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary opacity-60 text-white text-xs font-bold rounded-full mr-3">JUN</span>
+                                <h3 class="text-xl font-bold text-gray-800">Scale Smart</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">Why it matters: <span class="font-semibold text-primary opacity-60">Grow bigger, stay compliant</span></p>
+                            <ul class="space-y-2 mb-4 flex-grow">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary opacity-60 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Growth strategies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary opacity-60 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Scaling operations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary opacity-60 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <span>Hiring & team building</span>
+                                </li>
+                            </ul>
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <div class="flex items-center text-primary opacity-60">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                    <p class="font-medium">Scaling roadmap template</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Navigation Buttons -->
-                <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity duration-300" onclick="scrollCarousel(-1)">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity duration-300" onclick="scrollCarousel(1)">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
+                
+                <!-- Timeline line connector (visible on large screens) -->
+                <div class="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-gray-200 z-0">
+                    <div class="absolute left-0 w-1/5 h-full bg-primary"></div>
+                </div>
+                
+                <!-- Timeline Mobile View -->
+                <div class="lg:hidden space-y-8 relative pl-10">
+                    <!-- Timeline vertical line -->
+                    <div class="absolute left-3 top-0 bottom-0 w-0.5 bg-gray-200 z-0"></div>
+                    
+                    <!-- Episode 1 -->
+                    <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-[-30px] top-8 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-sm z-10"></div>
+                        <div class="h-2 bg-primary"></div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary text-white text-xs font-bold rounded-full mr-3">FEB</span>
+                                <h3 class="text-xl font-bold text-gray-800">Episode 1: Register Right</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Why it matters: <span class="font-semibold text-primary">Legitimacy = Trust</span></p>
+                            <p class="mb-4">Learn the exact steps to register your business properly and establish a foundation for growth.</p>
+                            <div class="flex items-center text-primary">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                <p class="font-medium">Get: A free step-by-step registration flowchart</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Episode 2 -->
+                    <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-[-30px] top-8 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-sm z-10"></div>
+                        <div class="h-2 bg-primary"></div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary text-white text-xs font-bold rounded-full mr-3">MAR</span>
+                                <h3 class="text-xl font-bold text-gray-800">Episode 2: License Lowdown</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Why it matters: <span class="font-semibold text-primary">Avoid fines, unlock growth</span></p>
+                            <p class="mb-4">Navigate the licensing landscape confidently and protect your business legally.</p>
+                            <div class="flex items-center text-primary">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                <p class="font-medium">Get: Industry-specific license checklists</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Episode 3 -->
+                    <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-[-30px] top-8 w-5 h-5 bg-primary rounded-full border-4 border-white shadow-sm z-10"></div>
+                        <div class="h-2 bg-primary"></div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <span class="flex items-center justify-center w-10 h-10 bg-primary text-white text-xs font-bold rounded-full mr-3">APR</span>
+                                <h3 class="text-xl font-bold text-gray-800">Episode 3: Tax Tactics</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">Why it matters: <span class="font-semibold text-primary">Taxes fund your future</span></p>
+                            <p class="mb-4">Demystify the tax system and discover deductions that can save your business money.</p>
+                            <div class="flex items-center text-primary">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z" clip-rule="evenodd"></path></svg>
+                                <p class="font-medium">Get: A simple tax-calculation template</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Future Episodes -->
+                    <div class="relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 p-6">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-[-30px] top-8 w-5 h-5 bg-primary opacity-60 rounded-full border-4 border-white shadow-sm z-10"></div>
+                        <h3 class="text-xl font-bold mb-6 text-gray-800">Coming Later in 2025</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex items-center mb-2">
+                                    <span class="flex items-center justify-center w-8 h-8 bg-primary opacity-60 text-white text-xs font-bold rounded-full mr-3">MAY</span>
+                                    <h4 class="font-bold text-lg text-gray-800">Episode 4: Formalize & Thrive</h4>
+                                </div>
+                                <p class="text-gray-600 ml-11">Look professional, attract investors, and position your business for opportunities.</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-2">
+                                    <span class="flex items-center justify-center w-8 h-8 bg-primary opacity-60 text-white text-xs font-bold rounded-full mr-3">JUN</span>
+                                    <h4 class="font-bold text-lg text-gray-800">Episode 5: Scale Smart</h4>
+                                </div>
+                                <p class="text-gray-600 ml-11">Grow bigger while staying compliant, and build systems that support expansion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Banner -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <div class="bg-primary rounded-2xl shadow-xl overflow-hidden">
+                    <div class="relative p-8 md:p-10 text-white">
+                        <div class="absolute right-0 bottom-0 rounded-full w-32 h-32 bg-secondary opacity-10 -mr-10 -mb-10"></div>
+                        <div class="absolute left-0 top-0 rounded-full w-16 h-16 bg-secondary opacity-10 -ml-8 -mt-8"></div>
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <div class="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                                <div class="flex items-center mb-4">
+                                    <span class="text-2xl mr-3">🎯</span>
+                                    <h3 class="text-2xl font-bold">Early Registration Bonus</h3>
+                                </div>
+                                <p class="text-lg mb-4">Sign up before January 31st and get our exclusive <span class="font-bold text-secondary">"Formalize Your Future" Starter Kit</span> for free!</p>
+                                <p>Includes business structure comparison guide, registration checklist, and startup legal essentials reference.</p>
+                            </div>
+                            <div class="md:w-1/3 text-center">
+                                <a href="#contact" class="block bg-secondary text-primary font-bold px-8 py-4 rounded-lg hover:bg-opacity-90 transition shadow-md text-lg transform hover:scale-105">Claim Your Bonus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Event Details Modal -->
-    <div id="event1" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
-            <h3 class="text-2xl font-bold mb-4">Digital Skills Workshop</h3>
-            <p class="mb-4">Learn how to monetize your digital skills. This workshop will cover various strategies and tools to help you turn your digital skills into a profitable venture.</p>
-            <button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-700 transition" onclick="hideDetails('event1')">Close</button>
+    <!-- Tools Section -->
+    <section id="tools" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Free Tools for <span class="gradient-text-gold">Busy Builders</span></h2>
+                <p class="text-xl text-gray-600">Knowledge that fits your hustle. Multiple formats to match your learning style and busy schedule.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="group">
+                    <div class="bg-primary/5 rounded-2xl p-8 text-center hover:bg-primary/10 transition flex flex-col items-center h-full relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/5 group-hover:opacity-100 opacity-0 transition-opacity"></div>
+                        <div class="relative">
+                            <div class="h-24 w-24 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition">
+                                <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-primary">Digital Playbooks</h3>
+                            <p class="text-gray-600 text-lg mb-6">PDF guides for quick, on-the-go learning. Download, save, and reference whenever you need clarity.</p>
+                            <div class="mt-auto">
+                                <span class="inline-block bg-primary/10 text-primary font-medium px-4 py-2 rounded-full text-sm">Sample Available Now</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <div class="bg-secondary/5 rounded-2xl p-8 text-center hover:bg-secondary/10 transition flex flex-col items-center h-full relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-secondary/5 group-hover:opacity-100 opacity-0 transition-opacity"></div>
+                        <div class="relative">
+                            <div class="h-24 w-24 mx-auto bg-secondary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition">
+                                <svg class="w-12 h-12 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 012.728-2.728"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-primary">Audio Snacks</h3>
+                            <p class="text-gray-600 text-lg mb-6">Listen to key takeaways while you work. Perfect for busy entrepreneurs who learn on the go.</p>
+                            <div class="mt-auto">
+                                <span class="inline-block bg-secondary/10 text-secondary font-medium px-4 py-2 rounded-full text-sm">10-15 Minutes Each</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <div class="bg-accent/5 rounded-2xl p-8 text-center hover:bg-accent/10 transition flex flex-col items-center h-full relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-accent/5 group-hover:opacity-100 opacity-0 transition-opacity"></div>
+                        <div class="relative">
+                            <div class="h-24 w-24 mx-auto bg-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent/20 transition">
+                                <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-primary">Video Shorts</h3>
+                            <p class="text-gray-600 text-lg mb-6">Watch demos like "How to fill Form X in 5 minutes." Visual learning made practical and quick.</p>
+                            <div class="mt-auto">
+                                <span class="inline-block bg-accent/10 text-accent font-medium px-4 py-2 rounded-full text-sm">Step-by-Step Walkthroughs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resources Preview -->
+            <div class="mt-20 max-w-5xl mx-auto">
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-1/2 p-8 md:p-10">
+                            <h3 class="text-2xl font-bold mb-6">A Taste of What You'll Get</h3>
+                            <ul class="space-y-6">
+                                <li class="flex">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-bold mb-1">Business Structure Comparison</h4>
+                                        <p class="text-gray-600">Side-by-side analysis of sole proprietorship, LLC, and corporation options with pros and cons for each.</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-bold mb-1">Registration Checklist</h4>
+                                        <p class="text-gray-600">Complete step-by-step checklist with all required documents, fees, and timelines for getting registered.</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+                                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-bold mb-1">Tax Calendar</h4>
+                                        <p class="text-gray-600">Annual tax obligation timeline with reminders for when to file, what to pay, and how to prepare.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="#contact" class="inline-flex items-center font-bold text-primary hover:text-accent transition">
+                                    <span>Access All Resources</span>
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 bg-primary relative overflow-hidden">
+                            <img src="./gallery/event.4.png" alt="Resources Preview" class="w-full h-full object-cover mix-blend-overlay opacity-20">
+                            <div class="absolute inset-0 flex items-center justify-center p-8">
+                                <div class="text-center">
+                                    <h3 class="text-2xl font-bold mb-6 text-white">All Resources are <span class="text-secondary">100% Free</span></h3>
+                                    <p class="text-white/90 mb-8 text-lg">No credit card required. No hidden fees. Just practical tools to help you succeed.</p>
+                                    <a href="#contact" class="inline-block bg-secondary text-primary font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition shadow-lg text-lg">Register Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-12 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl leading-9 font-extrabold text-gray-900">Contact Us</h2>
-            <form class="mt-8 space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center max-w-3xl mx-auto">
+                <span class="inline-block bg-secondary/10 text-secondary font-bold px-4 py-2 rounded-full mb-4 text-sm">MONTHLY MEETUPS</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Money Mindset Mondays</h2>
+                <p class="text-xl text-gray-600">Where Hustlers Become Visionaries. Join our free monthly events to learn, connect, and leave with a concrete action plan.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-10">
+                <div class="lg:w-1/2">
+                    <div class="relative h-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-20"></div>
+                        <div class="relative bg-white rounded-2xl overflow-hidden shadow-lg h-full">
+                            <div class="h-64 md:h-80 relative">
+                                <img src="./gallery/event.6.png" alt="Money Mindset Monday event at LinkSpace" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent">
+                                    <div class="absolute bottom-0 left-0 p-6">
+                                        <span class="inline-block bg-secondary text-primary font-bold px-4 py-1 rounded-full text-sm mb-2">FREE MONTHLY EVENT</span>
+                                        <h3 class="text-2xl md:text-3xl font-bold text-white">Dream Big. Hustle Smarter.</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <p class="text-gray-600 mb-8 text-lg">A monthly meetup where ambition meets actionable advice. Hosted by LinkSpace and Irabu, this is your chance to grow your network and your knowledge.</p>
+                                
+                                <div class="grid grid-cols-2 gap-6 mb-8">
+                                    <div class="flex items-start">
+                                        <span class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3 text-primary">💡</span>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Learn Raw Truths</h4>
+                                            <p class="text-gray-600">From founders who've made (and fixed!) mistakes.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="flex-shrink-0 w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center mr-3 text-secondary">🤝</span>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Build Your Squad</h4>
+                                            <p class="text-gray-600">Connect with mentors and peers who "get it."</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mr-3 text-accent">🚀</span>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Leave Energized</h4>
+                                            <p class="text-gray-600">With a to-do list, not just inspiration.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3 text-primary">🎁</span>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Free Resources</h4>
+                                            <p class="text-gray-600">Take home templates, checklists, and guides.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col sm:flex-row sm:items-center gap-4 justify-between border-t border-gray-100 pt-6">
+                                    <div>
+                                        <h4 class="font-bold text-lg flex items-center">
+                                            <svg class="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                            <span>First Monday of Every Month</span>
+                                        </h4>
+                                        <p class="text-gray-600 pl-7">6:00 PM @ LinkSpace Dar es Salaam</p>
+                                    </div>
+                                    <div class="text-center sm:text-right">
+                                        <span class="inline-block bg-green-100 text-green-600 font-bold px-4 py-1 rounded-full text-sm">Free Entry. Forever.</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <a href="#contact" class="block w-full bg-primary hover:bg-dark text-white font-bold py-3.5 rounded-lg text-center transition text-lg shadow-md">Reserve Your Spot</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="lg:w-1/2">
+                    <div class="relative h-full">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-20"></div>
+                        <div class="relative bg-white rounded-2xl overflow-hidden shadow-lg h-full grid content-between">
+                            <div>
+                                <div class="p-8">
+                                    <h3 class="text-2xl font-bold mb-8">What Past Attendees Say</h3>
+                                    
+                                    <div class="space-y-8">
+                                        <div class="bg-gray-50 rounded-xl p-6 relative">
+                                            <div class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/2">
+                                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white text-xs">
+                                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                                </div>
+                                            </div>
+                                            <p class="italic text-gray-700 mb-4">"Attending live felt like a mentorship session with friends. I connected with three other business owners who've become my support network."</p>
+                                            <div class="flex items-center">
+                                                <img src="./gallery/manka_testimony.jpg" alt="Maria L." class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-white shadow">
+                                                <div>
+                                                    <h4 class="font-bold">Betty</h4>
+                                                    <p class="text-sm text-gray-600">Entrepreneur</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="bg-gray-50 rounded-xl p-6 relative">
+                                            <div class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/2">
+                                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-xs">
+                                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                                </div>
+                                            </div>
+                                            <p class="italic text-gray-700 mb-4">"The practical tips on business registration saved me weeks of research. I implemented what I learned immediately and saw results."</p>
+                                            <div class="flex items-center">
+                                                <img src="./gallery/mtuchi_testimony.jpg" alt="John M." class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-white shadow">
+                                                <div>
+                                                    <h4 class="font-bold">Mtuchi</h4>
+                                                    <p class="text-sm text-gray-600">Tech Startup Founder</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-gray-50 rounded-xl p-6 relative">
+                                            <div class="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/2">
+                                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-xs">
+                                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                                </div>
+                                            </div>
+                                            <p class="italic text-gray-700 mb-4">"The practical tips on business registration saved me weeks of research. I implemented what I learned immediately and saw results."</p>
+                                            <div class="flex items-center">
+                                                <img src="./gallery/julius_testimony.png" alt="Julius M." class="w-12 h-12 rounded-full object-cover mr-4 border-2 border-white shadow">
+                                                <div>
+                                                    <h4 class="font-bold">Julius Moshiro</h4>
+                                                    <p class="text-sm text-gray-600">Content Creator</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Feed -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Follow Our <span class="gradient-text">Journey</span></h2>
+                <p class="text-xl text-gray-600 mb-8">Get daily tips, event highlights, and success stories on our Instagram.</p>
+                <a href="https://instagram.com/moneymindset.tz" target="_blank" class="inline-flex items-center text-primary font-bold text-lg hover:text-accent transition">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    @moneymindset.tz
+                </a>
+            </div>
+            
+            <!-- Social Media Feed Integration -->
+            <div id="instagram-feed" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <!-- This will be replaced by the actual Instagram feed -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition group">
+                    <img src="./gallery/event.5.png" alt="Instagram post" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
-                <div>
-                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Send Message
-                    </button>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition group">
+                    <img src="./gallery/event.6.png" alt="Instagram post" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300">
                 </div>
-            </form>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition group">
+                    <img src="./gallery/event.7.png" alt="Instagram post" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition group">
+                    <img src="./gallery/event.8.png" alt="Instagram post" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition group">
+                    <img src="./gallery/event.9.png" alt="Instagram post" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition group relative">
+                    <img src="./gallery/event.10.png" alt="Instagram post" class="w-full aspect-square object-cover opacity-60">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <a href="https://instagram.com/moneymindset.tz" target="_blank" class="bg-white/90 text-primary hover:bg-white font-bold px-4 py-2 rounded-lg transition text-sm shadow-md">
+                            View More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Signup Section -->
+    <section id="contact" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+                    <div class="flex flex-col lg:flex-row">
+                        <div class="lg:w-1/2 p-8 md:p-12">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to <span class="gradient-text">Formalize</span> Your Future?</h2>
+                            <p class="text-lg text-gray-600 mb-8">Register for Series Two now and take the first step toward transforming your hustle into a legacy. Free resources, expert guidance, and a supportive community await you.</p>
+                            
+                            <form class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2 text-lg">Your Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-lg" placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2 text-lg">Email Address</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-lg" placeholder="Enter your email">
+                                </div>
+                                <div>
+                                    <label for="business" class="block text-gray-700 font-medium mb-2 text-lg">Business Type</label>
+                                    <select id="business" class="w-full px-4 py-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-lg">
+                                        <option value="" disabled selected>Select your business type</option>
+                                        <option value="startup">Startup</option>
+                                        <option value="small_business">Small Business</option>
+                                        <option value="freelancer">Freelancer</option>
+                                        <option value="idea_stage">Still at idea stage</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded">
+                                        <span class="ml-2 text-gray-700 text-lg">Subscribe to receive updates and free resources</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="bg-primary hover:bg-dark text-white font-bold px-6 py-4 rounded-lg transition duration-300 w-full text-lg shadow-md">Register for Free</button>
+                                <p class="text-center text-gray-500 text-sm">No credit card required. 100% free forever.</p>
+                            </form>
+                        </div>
+                        
+                        <div class="lg:w-1/2 bg-primary relative overflow-hidden">
+                            <img src="./gallery/event.5.png" alt="Business Growth" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay">
+                            <div class="relative p-8 md:p-12 h-full flex flex-col">
+                                <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">What You'll Get</h3>
+                                
+                                <div class="space-y-6 mb-auto">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 bg-secondary rounded-full p-1.5 mt-1">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-bold text-white">Access to All Series Two Episodes</h4>
+                                            <p class="text-white/80">Five comprehensive modules with step-by-step guidance.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 bg-secondary rounded-full p-1.5 mt-1">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-bold text-white">Premium Resource Bundle</h4>
+                                            <p class="text-white/80">Templates, checklists, calculators, and more.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 bg-secondary rounded-full p-1.5 mt-1">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-bold text-white">Live Q&A Sessions</h4>
+                                            <p class="text-white/80">Get your specific questions answered by experts.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 bg-secondary rounded-full p-1.5 mt-1">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-bold text-white">Private Community Access</h4>
+                                            <p class="text-white/80">Connect with like-minded entrepreneurs on your journey.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 bg-secondary rounded-full p-1.5 mt-1">
+                                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-lg font-bold text-white">Early Access to Money Mindset Mondays</h4>
+                                            <p class="text-white/80">Priority seating at our monthly in-person events.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-8 pt-6 border-t border-white/20">
+                                    <div class="flex items-center">
+                                        <div class="flex -space-x-2 mr-4">
+                                            <img src="./gallery/linkspace_logo.png" alt="Partner" class="w-10 h-10 rounded-full border-2 border-primary">
+                                            <img src="./gallery/irabu_logo.png" alt="Partner" class="w-10 h-10 rounded-full border-2 border-primary">
+                                        </div>
+                                        <p class="text-white font-medium">Backed by LinkSpace and Irabu</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between">
+    <footer class="bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div>
-                    <h3 class="font-bold text-lg">Money Mindset</h3>
-                    <p class="mt-2 text-sm">Empowering communities for financial success.</p>
+                    <div class="flex items-center mb-6">
+                        <img src="./gallery/logo.png" alt="Money Mindset Logo" class="h-12 mr-3">
+                        <span class="text-2xl font-bold">Money<span class="text-secondary">Mindset</span></span>
+                    </div>
+                    <p class="mb-6 text-gray-300 text-lg">Formalizing isn't a barrier—it's your launchpad. Start today.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/moneymindset.tz" target="_blank" class="text-gray-300 hover:text-white transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"></path></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="flex space-x-8">
-                    <a href="#" class="text-sm">Contact</a>
-                    <a href="#" class="text-sm">Privacy Policy</a>
-                    <a href="#" class="text-sm">Terms of Service</a>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-lg">
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="#episodes" class="text-gray-300 hover:text-white transition">Series Two Episodes</a></li>
+                        <li><a href="#tools" class="text-gray-300 hover:text-white transition">Free Tools</a></li>
+                        <li><a href="#events" class="text-gray-300 hover:text-white transition">Money Mindset Mondays</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition">Register Now</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Resources</h3>
+                    <ul class="space-y-3 text-lg">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Business Registration Guide</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Tax Essentials Playbook</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Licensing Checklist</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Success Stories</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Blog & Articles</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 mr-3 text-secondary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span class="text-gray-300">LinkSpace<br/>Dar es Salaam, Tanzania</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 mr-3 text-secondary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <span class="text-gray-300">info@moneymindset.tz</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 mr-3 text-secondary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                            <span class="text-gray-300">@moneymindset.tz</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-4 flex justify-between">
-                <p class="text-sm">&copy; 2024 Money Mindset. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="#"><img src="https://source.unsplash.com/random/30x30?icon" alt="Social Icon"></a>
-                    <a href="#"><img src="https://source.unsplash.com/random/30x30?icon" alt="Social Icon"></a>
-                    <a href="#"><img src="https://source.unsplash.com/random/30x30?icon" alt="Social Icon"></a>
-                </div>
+            
+            <div class="border-t border-opacity-20 border-secondary pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Money Mindset. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Created with 💙 for Tanzania's hustlers and visionaries.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-secondary text-primary p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 transform translate-y-10 z-30">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
 
-        menuButton.addEventListener('click', () => {
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        
+        // Sticky header behavior
+        const header = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-md');
+                header.classList.remove('py-3');
+                header.classList.add('py-2');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.remove('py-2');
+                header.classList.add('py-3');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+                backToTopButton.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible', 'translate-y-10');
+                backToTopButton.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Instagram Feed Integration
+        // This is a placeholder for the actual Instagram feed integration
+        // Replace this with actual implementation using Curator.io or EmbedSocial
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example of how you might integrate Curator.io
+            /* 
+            var i = new Curator.Feeds.Instagram({
+                container: '#instagram-feed',
+                feedId: 'your-feed-id-here',
+                apiKey: 'your-api-key-here',
+                postsPerPage: 6,
+                lang: 'en',
+                grid: {
+                    rows: 1, 
+                    columns: 6,
+                    gutter: 16
+                }
+            });
+            */
+            
+            // For demonstration purposes, we're using placeholders
+            console.log('Instagram feed would be loaded here with the handle: @moneymindset.tz');
+        });
+        
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
     </script>
-
-    <!-- JavaScript for Carousel and Modal -->
-    <script>
-        function scrollCarousel(direction) {
-            const carousel = document.querySelector('.carousel');
-            const scrollAmount = carousel.clientWidth;
-            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-
-        function showDetails(eventId) {
-            document.getElementById(eventId).classList.remove('hidden');
-        }
-
-        function hideDetails(eventId) {
-            document.getElementById(eventId).classList.add('hidden');
-        }
-    </script>
-
 </body>
 </html>
