@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script async src="https://uza.co.tz/api/downloads/js/embeddable.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#004241',   // Dark teal from logo
+                        secondary: '#F7C922', // Yellow/gold from logo
+                        accent: '#5B9BD5',    // Light blue from logo
+                        dark: '#002B29',      // Darker variation of primary
+                        light: '#F8FAFC',     // Light background
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width:  100%;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            overflow: hidden;          /* Prevent the main page from scrolling */
+        }
+        #uza-container {
+            width: 50%;  /* Or whatever width you want */
+            height: 50%; /* Or whatever height you want */
+            /* Removed max-width/height */
+            /* Removed border (for clarity) */
+        }
+
+        /* Styles for the custom element - Best Practice */
+        uza-products {
+            width: 100%;   /* Fill the container */
+            height: 100%;  /* Fill the container */
+            margin-top: 100px;
+        }
+        
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50 sticky-nav" aria-label="Main Navigation">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center" aria-label="Money Mindset Home">
+                    <img src="./gallery/logo.png" alt="Money Mindset Logo" class="h-16 md:h-18 mr-2">
+                    <span class="hidden md:block text-2xl font-bold text-primary">MONEY<span class="text-secondary"> MINDSET</span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- UZA Products Embed LIVE -->
+    <div id="uza-container">
+        <uza-products
+            product-catalog-id="12345"
+            public-api-key="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwOE1KUm9YIiwiaWF0IjoxNzQyNDg4MzkwLCJleHAiOjE3NDc2NzIzOTAsIm5iZiI6MTc0MjQ4ODM5MCwianRpIjoiNVFZTjBZOCIsInN1YiI6ZmFsc2UsImF1ZCI6IndlYmVtYmVkLnV6YS5jby50eiJ9.W1uQW2ZPV6X6T2zgYyNhSCXaiAsSO640Cm1KafOew20"
+            source="#web"
+            refCode="#bo"
+            customer-email=""
+            __locale-override="en"
+        ></uza-products>
+    </div>
+    <!-- End UZA Products Embed -->
+</body>
+</html>
