@@ -44,17 +44,19 @@
             overflow: hidden;          /* Prevent the main page from scrolling */
         }
         #uza-container {
-            width: 50%;  /* Or whatever width you want */
-            height: 50%; /* Or whatever height you want */
+            width: 100%;  /* Or whatever width you want */
+            height: 100%; /* Or whatever height you want */
             /* Removed max-width/height */
             /* Removed border (for clarity) */
         }
 
         /* Styles for the custom element - Best Practice */
         uza-products {
-            width: 100%;   /* Fill the container */
-            height: 100%;  /* Fill the container */
             margin-top: 100px;
+            width: 100%;   
+            /* Compute height minus 100px */
+            height: calc(100vh - 100px); /* Adjusted to fit the screen */
+            
         }
         
     </style>
