@@ -143,7 +143,7 @@
                         <span class="text-primary/30">|</span>
                         <button id="lang-sw-desktop" onclick="setLanguage('sw')" aria-label="Switch to Swahili">SW</button>
                     </div>
-                    <a href="action.html" class="bg-secondary text-primary px-6 py-3 rounded-lg hover:bg-opacity-90 transition text-base font-bold shadow-md tracking-wide" data-sw="Jisajili Sasa">Register Now</a>
+                    <a href="action" class="bg-secondary text-primary px-6 py-3 rounded-lg hover:bg-opacity-90 transition text-base font-bold shadow-md tracking-wide" data-sw="Jisajili Sasa">Register Now</a>
                 </div>
                 <div class="flex items-center md:hidden space-x-3">
                      <!-- Language Switcher - Mobile -->
@@ -163,7 +163,7 @@
                 <a href="#episodes" class="block py-3 text-lg hover:text-primary transition border-b border-gray-100" data-sw="Mfululizo">Series Two</a>
                 <a href="#tools" class="block py-3 text-lg hover:text-primary transition border-b border-gray-100" data-sw="Zana Bure">Free Tools</a>
                 <a href="#events" class="block py-3 text-lg hover:text-primary transition" data-sw="Matukio">Events</a>
-                <a href="action.html" class="block py-3 mt-4 bg-secondary text-primary px-4 rounded-lg text-center text-lg font-bold shadow-md" data-sw="Jisajili Sasa">Register Now</a>
+                <a href="action" class="block py-3 mt-4 bg-secondary text-primary px-4 rounded-lg text-center text-lg font-bold shadow-md" data-sw="Jisajili Sasa">Register Now</a>
             </div>
         </div>
     </nav>
@@ -177,7 +177,7 @@
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight" data-sw="<span class='text-primary'></span> Urasimishaji Biashara,  <span class='text-secondary'>Umerahisishwa Kwa Ajili Yako.</span>"> <span class="text-primary">Business Formalization, </span> <span class="text-secondary">Simplified for You</span></h1>
                     <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed" data-sw="Mfululizo wa Pili unafafanua kwanini na jinsi ya kujenga Biashara halali — ili ulinde mawazo yako, uvute fursa, na ukue bila mipaka.">Series Two unpacks the why and how of building a legitimate Business — so you can protect your ideas, attract opportunities, and grow without limits.</p>
                     <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <a href="action.html" class="bg-primary hover:bg-dark text-white font-bold px-8 py-4 rounded-lg text-center transition duration-300 shadow-md hover:shadow-xl text-lg tracking-wide" data-sw="Weka Nafasi Yako">Reserve Your Spot</a>
+                        <a href="action" class="bg-primary hover:bg-dark text-white font-bold px-8 py-4 rounded-lg text-center transition duration-300 shadow-md hover:shadow-xl text-lg tracking-wide" data-sw="Weka Nafasi Yako">Reserve Your Spot</a>
                         <a href="#episodes" class="border-2 border-primary hover:bg-primary/5 text-primary font-bold px-8 py-4 rounded-lg text-center transition duration-300 text-lg tracking-wide" data-sw="Gundua Vipindi">Explore Episodes</a>
                     </div>
                     <div class="flex items-center">
@@ -289,7 +289,7 @@
                                 </div>
                             </div>
                             <p class="mt-6 text-white/90" data-sw="Mfululizo wa Pili ulimpa msukumo Abel kurasimisha biashara yake ya kukata tiketi za ndege. Imekuwa mabadiliko makubwa na sasa anaonekana mtaalamu mwenye uwezo wa kufanya kazi na biashara za aina zote.">Series Two inspired Abel to formalize his Air-ticket Booking Business. It's been a game-changer and he now appears professional with potential to work with all kinds of businesses.</p>
-                            <a href="action.html" class="inline-block mt-8 bg-secondary text-primary font-bold px-6 py-3 rounded-lg hover:bg-opacity-90 transition" data-sw="Jiunge na Abel & Wengine">Join Abell & Others</a>
+                            <a href="action" class="inline-block mt-8 bg-secondary text-primary font-bold px-6 py-3 rounded-lg hover:bg-opacity-90 transition" data-sw="Jiunge na Abel & Wengine">Join Abell & Others</a>
                         </div>
                     </div>
                 </div>
@@ -518,7 +518,7 @@
                                 <p data-sw="Jiunge sasa ili upate ufikiaji wa nyenzo hizi zote unapozihitaji!">Join now to get access to all these resources as they drop!</p>
                             </div>
                             <div class="md:w-1/3 text-center">
-                                <a href="action.html" class="block bg-secondary text-primary font-bold px-8 py-4 rounded-lg hover:bg-opacity-90 transition shadow-md text-lg transform hover:scale-105" data-sw="Pata Zana Zako">Get Your Tools</a>
+                                <a href="action" class="block bg-secondary text-primary font-bold px-8 py-4 rounded-lg hover:bg-opacity-90 transition shadow-md text-lg transform hover:scale-105" data-sw="Pata Zana Zako">Get Your Tools</a>
                             </div>
                         </div>
                     </div>
@@ -666,7 +666,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-6">
-                                    <a href="action.html" class="block w-full bg-primary hover:bg-dark text-white font-bold py-3.5 rounded-lg text-center transition text-lg shadow-md" data-sw="Weka Nafasi Yako">Reserve Your Spot</a>
+                                    <a href="action" class="block w-full bg-primary hover:bg-dark text-white font-bold py-3.5 rounded-lg text-center transition text-lg shadow-md" data-sw="Weka Nafasi Yako">Reserve Your Spot</a>
                                 </div>
                             </div>
                         </div>
@@ -720,7 +720,7 @@
                             </div>
                              <!-- Optional: Add a CTA at the bottom if desired -->
                              <!-- <div class="p-8 border-t border-gray-100 mt-auto">
-                                 <a href="action.html" class="text-primary font-bold hover:text-accent transition" data-sw="Jiunge na Mkutano Ujao">Join the Next Meetup <i class="fas fa-arrow-right ml-1"></i></a>
+                                 <a href="action" class="text-primary font-bold hover:text-accent transition" data-sw="Jiunge na Mkutano Ujao">Join the Next Meetup <i class="fas fa-arrow-right ml-1"></i></a>
                              </div> -->
                         </div>
                     </div>
@@ -853,7 +853,7 @@
                         <li><a href="#episodes" class="text-gray-300 hover:text-white transition" data-sw="Vipindi vya Mfululizo wa Pili">Series Two Episodes</a></li>
                         <li><a href="#tools" class="text-gray-300 hover:text-white transition" data-sw="Zana Bure">Free Tools</a></li>
                          <li><a href="#events" class="text-gray-300 hover:text-white transition" data-sw="Jumatatu za Money Mindset">Money Mindset Mondays</a></li>
-                        <li><a href="action.html" class="text-gray-300 hover:text-white transition" data-sw="Jisajili Sasa">Register Now</a></li>
+                        <li><a href="action" class="text-gray-300 hover:text-white transition" data-sw="Jisajili Sasa">Register Now</a></li>
                     </ul>
                 </div>
                  <!-- Footer Column 3 -->
