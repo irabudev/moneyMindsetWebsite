@@ -1,7 +1,7 @@
 // js/handler.js
 
 // --- Global Constants & Variables ---
-const RELEVANT_PARAMS = ['refCode', 'source']; // Parameters to track
+const RELEVANT_PARAMS = ['refCode', 'refcode', 'source','donation', 'lang', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']; // Parameters to track
 const translations = { en: {}, sw: {} };
 let translatableElements, translatablePlaceholders, translatableAltText, translatableAriaLabel;
 
