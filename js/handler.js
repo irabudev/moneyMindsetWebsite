@@ -1,7 +1,7 @@
 // js/handler.js
 
 // --- Global Constants & Variables ---
-const RELEVANT_PARAMS = ['refCode', 'refcode', 'source','donation', 'lang', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']; // Parameters to track
+const RELEVANT_PARAMS = ['refCode', 'refcode', 'source', 'donation', 'lang', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']; // Parameters to track
 const translations = { en: {}, sw: {} };
 let translatableElements, translatablePlaceholders, translatableAltText, translatableAriaLabel;
 
@@ -127,8 +127,8 @@ function updatePageLinks(effectiveParams) {
 
                 // Only update href if it actually changed or if original query had relevant params that are now cleared
                 if (linkChanged || RELEVANT_PARAMS.some(p => new URL(a.getAttribute('href'), window.location.origin).searchParams.has(p))) {
-                     // The getAttribute('href') is used to compare against the original state before any modifications in this session.
-                    if (a.href !== linkUrl.toString()){
+                    // The getAttribute('href') is used to compare against the original state before any modifications in this session.
+                    if (a.href !== linkUrl.toString()) {
                         a.href = linkUrl.toString();
                     }
                 }
@@ -149,8 +149,6 @@ function updateUzaEmbedAttributes(effectiveParams) {
         RELEVANT_PARAMS.forEach(pName => {
             if (effectiveParams[pName] && effectiveParams[pName] !== '') {
                 uzaEmbed.setAttribute(pName, effectiveParams[pName]);
-            } else {
-                uzaEmbed.removeAttribute(pName); // Remove attribute if effective param is empty
             }
         });
     }
